@@ -1,6 +1,6 @@
-package com.scopemedia.api;
+package com.scopemedia.api.client;
 
-import com.scopemedia.api.ScopeCheckClientImpl.RequestBuilder;
+import com.scopemedia.api.client.ScopeCheckClientImpl.RequestBuilder;
 import com.scopemedia.api.request.AddMediaRequest;
 import com.scopemedia.api.request.PredictionRequest;
 import com.scopemedia.api.request.SimilarImageRequest;

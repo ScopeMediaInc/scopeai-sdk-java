@@ -1,4 +1,4 @@
-package com.scopemedia.api;
+package com.scopemedia.api.client;
 
 import com.scopemedia.api.request.AddMediaRequest;
 import com.scopemedia.api.request.PredictionRequest;

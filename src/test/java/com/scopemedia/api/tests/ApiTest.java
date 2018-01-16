@@ -1,10 +1,10 @@
-package com.scopemedia.scopescheck;
+package com.scopemedia.api.tests;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.scopemedia.api.ScopeCheckBuilder;
-import com.scopemedia.api.ScopeCheckClient;
+import com.scopemedia.api.client.ScopeCheckBuilder;
+import com.scopemedia.api.client.ScopeCheckClient;
 import com.scopemedia.api.dto.Area;
 import com.scopemedia.api.dto.Media;
 import com.scopemedia.api.dto.Model;
@@ -43,7 +43,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getMedias() {
+    public void testGetMediaInCollection() {
         try {
             MediaResponse response = client.getMedias(0,20).performSync();
             Assert.assertEquals("OK", response.getStatus());
@@ -57,7 +57,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getModels() {
+    public void testGetPredictionModels() {
         try {
             ModelResponse response = client.getModels().performSync();
             Assert.assertEquals("OK", response.getStatus());
@@ -71,7 +71,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getPrediction() {
+    public void testImagePrediction() {
         PredictionRequest request = new PredictionRequest();
         request.setMediaAsUrl(imageUrl);
         request.setModelId("general-v3");
@@ -89,7 +89,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getPredictionArea() {
+    public void testImageAreaPrediction() {
         PredictionRequest request = new PredictionRequest();
         request.setMediaAsUrl(imageUrl);
         request.setArea(area);
@@ -109,7 +109,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getSimilar() {
+    public void testGetSimilarImages() {
         SimilarImageRequest request = new SimilarImageRequest();
         request.setMediaAsUrl(imageUrl);
         request.setAppId("fashion");
@@ -126,7 +126,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getSimilarArea() {
+    public void testGetSimilarImagesByImageArea() {
         SimilarImageRequest request = new SimilarImageRequest();
         request.setMediaAsUrl(imageUrl);
         request.setArea(area);

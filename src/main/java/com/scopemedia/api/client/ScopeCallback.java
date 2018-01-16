@@ -1,4 +1,4 @@
-package com.scopemedia.api;
+package com.scopemedia.api.client;
 
 import com.scopemedia.api.response.ScopeResponse;
 
