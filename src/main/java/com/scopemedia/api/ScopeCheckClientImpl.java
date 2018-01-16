@@ -1,17 +1,15 @@
-package com.scopemedia.scopescheck.client;
-
-import com.scopemedia.scopescheck.dto.ScopeMissingArgumentException;
-import com.scopemedia.scopescheck.dto.request.AddMediaRequest;
-import com.scopemedia.scopescheck.dto.request.SimilarImageRequest;
-import com.scopemedia.scopescheck.dto.request.PredictionRequest;
-import com.scopemedia.scopescheck.dto.response.AddMediaResponse;
-import com.scopemedia.scopescheck.dto.response.GetMediaResponse;
-import com.scopemedia.scopescheck.dto.response.ModelResponse;
-import com.scopemedia.scopescheck.dto.response.ScopeResponse;
-import com.scopemedia.scopescheck.dto.response.SimilarImageResponse;
-import com.scopemedia.scopescheck.dto.response.PredictionResponse;
+package com.scopemedia.api;
 
 import java.io.IOException;
+
+import com.scopemedia.api.exception.ScopeMissingArgumentException;
+import com.scopemedia.api.request.AddMediaRequest;
+import com.scopemedia.api.request.PredictionRequest;
+import com.scopemedia.api.request.SimilarImageRequest;
+import com.scopemedia.api.response.MediaResponse;
+import com.scopemedia.api.response.ModelResponse;
+import com.scopemedia.api.response.PredictionResponse;
+import com.scopemedia.api.response.ScopeResponse;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -71,18 +69,18 @@ class ScopeCheckClientImpl implements ScopeCheckClient {
     }
 
     @Override
-    public RequestBuilder<GetMediaResponse> getMedias(int page, int size) {
+    public RequestBuilder<MediaResponse> getMedias(int page, int size) {
         return new RequestBuilder<>(service.getMedias(page, size));
     }
 
     @Override
-    public RequestBuilder<AddMediaResponse> addMedias(AddMediaRequest request) {
+    public RequestBuilder<MediaResponse> addMedias(AddMediaRequest request) {
         if (!request.checkAllRequired()) throw new ScopeMissingArgumentException("Please set a media array");
         return new RequestBuilder<>(service.addMedias(request));
     }
 
     @Override
-    public RequestBuilder<SimilarImageResponse> getSimilarImages(SimilarImageRequest request) {
+    public RequestBuilder<MediaResponse> getSimilarImages(SimilarImageRequest request) {
         if (!request.checkAllRequired()) throw new ScopeMissingArgumentException("Please set a mediaId or mediaUrl or base64");
         return new RequestBuilder<>(service.getSimilarImages(request));
     }

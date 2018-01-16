@@ -1,4 +1,4 @@
-package com.scopemedia.scopescheck.dto.request;
+package com.scopemedia.api.request;
 
 /**
  * @author Maikel Rehl on 6/12/2017.

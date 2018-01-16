@@ -1,11 +1,11 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 
-group = 'com.scopemedia.scopecheck'
-version = '1.0.0'
+group = 'com.scopemedia.api'
+version = '2.0.0'
 
 ext {
-    okHttp = "3.8.0"
+    okHttp = "3.9.1"
     retrofit = "2.3.0"
 }
 

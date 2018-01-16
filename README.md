@@ -19,7 +19,7 @@ Add the following to the dependencies section of your `build.gradle`:
 ```groovy
 // Add the client to your dependencies:
 dependencies {
-    compile 'com.scopemedia.scopecheck:java-sdk:1.0.0'
+    compile 'com.scopemedia.api:java-sdk:2.0.0'
 }
 
 // Make sure you have the Maven Local Repository in your Gradle File
@@ -34,9 +34,9 @@ Add the following to your dependencies:
 
 ```xml
 <dependency>
-  <groupId>com.scopemedia.scopecheck</groupId>
+  <groupId>com.scopemedia.api</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 

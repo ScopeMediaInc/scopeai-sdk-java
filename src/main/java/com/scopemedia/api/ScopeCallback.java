@@ -1,6 +1,6 @@
-package com.scopemedia.scopescheck.client;
+package com.scopemedia.api;
 
-import com.scopemedia.scopescheck.dto.response.ScopeResponse;
+import com.scopemedia.api.response.ScopeResponse;
 
 /**
  * Created by maikel on 2017-03-27.

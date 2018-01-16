@@ -1,20 +1,21 @@
 package com.scopemedia.scopescheck;
 
-import com.scopemedia.scopescheck.client.ScopeCheckBuilder;
-import com.scopemedia.scopescheck.client.ScopeCheckClient;
-import com.scopemedia.scopescheck.dto.model.Area;
-import com.scopemedia.scopescheck.dto.model.Media;
-import com.scopemedia.scopescheck.dto.model.Model;
-import com.scopemedia.scopescheck.dto.model.Tag;
-import com.scopemedia.scopescheck.dto.request.PredictionRequest;
-import com.scopemedia.scopescheck.dto.request.SimilarImageRequest;
-import com.scopemedia.scopescheck.dto.response.GetMediaResponse;
-import com.scopemedia.scopescheck.dto.response.ModelResponse;
-import com.scopemedia.scopescheck.dto.response.PredictionResponse;
-import com.scopemedia.scopescheck.dto.response.SimilarImageResponse;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import com.scopemedia.api.ScopeCheckBuilder;
+import com.scopemedia.api.ScopeCheckClient;
+import com.scopemedia.api.dto.Area;
+import com.scopemedia.api.dto.Media;
+import com.scopemedia.api.dto.Model;
+import com.scopemedia.api.dto.Tag;
+import com.scopemedia.api.request.PredictionRequest;
+import com.scopemedia.api.request.SimilarImageRequest;
+import com.scopemedia.api.response.MediaResponse;
+import com.scopemedia.api.response.ModelResponse;
+import com.scopemedia.api.response.PredictionResponse;
+
+import org.junit.Assert;
 
 import java.io.IOException;
 
@@ -44,12 +45,14 @@ public class ApiTest {
     @Test
     public void getMedias() {
         try {
-            GetMediaResponse response = client.getMedias(0,20).performSync();;
+            MediaResponse response = client.getMedias(0,20).performSync();
+            Assert.assertEquals("OK", response.getStatus());
             Media[] medias = response.getMedias();
             for (Media media : medias)
                 System.out.println(media.getUrl());
         } catch (IOException e) {
             e.printStackTrace();
+            Assert.fail();
         }
     }
 
@@ -57,11 +60,13 @@ public class ApiTest {
     public void getModels() {
         try {
             ModelResponse response = client.getModels().performSync();
+            Assert.assertEquals("OK", response.getStatus());
             Model[] models = response.getModels();
             for (Model model : models)
                 System.out.println(model.getName() + "\tisPublic: " + model.isPublicModel());
         } catch (IOException e) {
             e.printStackTrace();
+            Assert.fail();
         }
     }
 
@@ -73,11 +78,13 @@ public class ApiTest {
 
         try {
             PredictionResponse response = client.getPrediction(request).performSync();
+            Assert.assertEquals("OK", response.getStatus());
             Tag[] tags = response.getTags();
             for (Tag tag : tags)
                 System.out.println(tag.getTag() + ":" + tag.getScore());
         } catch (IOException e) {
             e.printStackTrace();
+            Assert.fail();            
         }
     }
 
@@ -90,12 +97,14 @@ public class ApiTest {
 
         try {
             PredictionResponse response = client.getPrediction(request).performSync();
+            Assert.assertEquals("OK", response.getStatus());
             Tag[] tags = response.getTags();
             for (Tag tag : tags)
                 System.out.println(tag.getTag() + ":" + tag.getScore());
 
         } catch (IOException e) {
             e.printStackTrace();
+            Assert.fail();
         }
     }
 
@@ -106,7 +115,8 @@ public class ApiTest {
         request.setAppId("fashion");
 
         try {
-            SimilarImageResponse response = client.getSimilarImages(request).performSync();
+            MediaResponse response = client.getSimilarImages(request).performSync();
+            Assert.assertEquals("OK", response.getStatus());
             Media[] mediaList = response.getMedias();
             for (Media media : mediaList)
                 System.out.println(media.getUrl());
@@ -123,7 +133,8 @@ public class ApiTest {
         request.setAppId("fashion");
 
         try {
-            SimilarImageResponse response = client.getSimilarImages(request).performSync();
+            MediaResponse response = client.getSimilarImages(request).performSync();
+            Assert.assertEquals("OK", response.getStatus());
             Media[] mediaList = response.getMedias();
             for (Media media : mediaList)
                 System.out.println(media.getUrl());

@@ -1,8 +1,8 @@
-package com.scopemedia.scopescheck.dto.response;
+package com.scopemedia.api.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.scopemedia.scopescheck.dto.model.Tag;
+import com.scopemedia.api.dto.Tag;
 
 /**
  * Created by maikel on 2017-03-27.

@@ -1,4 +1,4 @@
-package com.scopemedia.scopescheck;
+package com.scopemedia.api.utils;
 
 //import android.graphics.Bitmap;
 //import android.graphics.Canvas;

@@ -1,4 +1,4 @@
-package com.scopemedia.scopescheck.client;
+package com.scopemedia.api;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 

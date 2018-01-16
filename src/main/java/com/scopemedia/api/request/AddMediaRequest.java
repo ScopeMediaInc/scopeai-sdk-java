@@ -1,8 +1,8 @@
-package com.scopemedia.scopescheck.dto.request;
+package com.scopemedia.api.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.scopemedia.scopescheck.dto.model.Media;
+import com.scopemedia.api.dto.Media;
 
 /**
  * Created by maikel on 2017-03-27.
@@ -22,7 +22,7 @@ public class AddMediaRequest extends ScopeRequest {
 
     /**
      * Array of Medias to add to your similar images pool
-     * @param medias List of new medias. See {@link com.scopemedia.scopescheck.dto.model.Media}
+     * @param medias List of new medias. See {@link com.scopemedia.api.dto.Media}
      */
     public AddMediaRequest(Media[] medias) {
         this.medias = medias;
@@ -30,7 +30,7 @@ public class AddMediaRequest extends ScopeRequest {
 
     /**
      * Array of Medias to add to your similar images pool
-     * @param medias List of new medias. See {@link com.scopemedia.scopescheck.dto.model.Media}
+     * @param medias List of new medias. See {@link com.scopemedia.api.dto.Media}
      * @return AddMediaRequest
      */
     public AddMediaRequest setMedias(Media[] medias) {

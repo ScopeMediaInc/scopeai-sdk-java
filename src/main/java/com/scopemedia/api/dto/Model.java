@@ -1,4 +1,4 @@
-package com.scopemedia.scopescheck.dto.model;
+package com.scopemedia.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

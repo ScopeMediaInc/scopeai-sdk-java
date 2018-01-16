@@ -1,15 +1,12 @@
-package com.scopemedia.scopescheck.client;
+package com.scopemedia.api;
 
-import com.scopemedia.scopescheck.client.ScopeCheckClientImpl.RequestBuilder;
-import com.scopemedia.scopescheck.dto.request.AddMediaRequest;
-import com.scopemedia.scopescheck.dto.request.PredictionRequest;
-import com.scopemedia.scopescheck.dto.request.SimilarImageRequest;
-
-import com.scopemedia.scopescheck.dto.response.AddMediaResponse;
-import com.scopemedia.scopescheck.dto.response.GetMediaResponse;
-import com.scopemedia.scopescheck.dto.response.ModelResponse;
-import com.scopemedia.scopescheck.dto.response.PredictionResponse;
-import com.scopemedia.scopescheck.dto.response.SimilarImageResponse;
+import com.scopemedia.api.ScopeCheckClientImpl.RequestBuilder;
+import com.scopemedia.api.request.AddMediaRequest;
+import com.scopemedia.api.request.PredictionRequest;
+import com.scopemedia.api.request.SimilarImageRequest;
+import com.scopemedia.api.response.MediaResponse;
+import com.scopemedia.api.response.ModelResponse;
+import com.scopemedia.api.response.PredictionResponse;
 
 /**
  * Created by maikel on 2017-03-27.
@@ -20,9 +17,9 @@ public interface ScopeCheckClient {
      * Returns all media files form your similar images pool
      * @param page
      * @param size
-     * @return {@link GetMediaResponse}
+     * @return {@link MediaResponse}
      */
-    RequestBuilder<GetMediaResponse> getMedias(int page, int size);
+    RequestBuilder<MediaResponse> getMedias(int page, int size);
 
     /**
      * Create a request to upload new media files to your similar images pool
@@ -30,14 +27,14 @@ public interface ScopeCheckClient {
      * @param request {@link AddMediaRequest}
      * @return {@link AddMediaResponse}
      */
-    RequestBuilder<AddMediaResponse> addMedias(AddMediaRequest request);
+    RequestBuilder<MediaResponse> addMedias(AddMediaRequest request);
 
     /**
      * returns similar images based on an input image
      * @param request {@link SimilarImageRequest}
      * @return {@link SimilarImageResponse}
      */
-    RequestBuilder<SimilarImageResponse> getSimilarImages(SimilarImageRequest request);
+    RequestBuilder<MediaResponse> getSimilarImages(SimilarImageRequest request);
 
     /**
      * returns predictions based on an input image

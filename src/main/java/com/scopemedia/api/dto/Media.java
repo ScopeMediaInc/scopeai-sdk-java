@@ -1,11 +1,12 @@
-package com.scopemedia.scopescheck.dto.model;
+package com.scopemedia.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Maikel Rehl on 6/12/2017.
  */
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Media {
 
     @JsonProperty("mediaId")
@@ -14,6 +15,9 @@ public class Media {
     @JsonProperty("mediaUrl")
     private String url;
 
+    @JsonProperty("mediaThumbnail")
+    private String thumbnail;
+    
     public Media() {
     }
 
@@ -42,4 +46,12 @@ public class Media {
     public String getUrl() {
         return url;
     }
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
 }

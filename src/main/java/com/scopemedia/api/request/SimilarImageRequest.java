@@ -1,9 +1,8 @@
-package com.scopemedia.scopescheck.dto.request;
+package com.scopemedia.api.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.scopemedia.scopescheck.Utils;
-import com.scopemedia.scopescheck.dto.model.Area;
+import com.scopemedia.api.dto.Area;
 
 /**
  * Created by maikel on 2017-03-27.
@@ -16,7 +15,7 @@ public class SimilarImageRequest extends ScopeRequest {
     private String base64;
 
     @JsonProperty("mediaId")
-    private long mediaId;
+    private Long mediaId;
 
     @JsonProperty("mediaUrl")
     private String mediaUrl;
@@ -35,7 +34,7 @@ public class SimilarImageRequest extends ScopeRequest {
      * @param id Media ID
      * @return PredictionRequest
      */
-    public SimilarImageRequest setMediaId(long id) {
+    public SimilarImageRequest setMediaId(Long id) {
         this.mediaId = id;
         return this;
     }
@@ -81,7 +80,7 @@ public class SimilarImageRequest extends ScopeRequest {
 
     /**
      * Set an area which will be used for the similar images
-     * @param area Area will be used for the similar images. See {@link com.scopemedia.scopescheck.dto.model.Area}
+     * @param area Area will be used for the similar images. See {@link com.scopemedia.api.dto.Area}
      * @return SimilarImageRequest
      */
     public SimilarImageRequest setArea(Area area) {
@@ -91,6 +90,6 @@ public class SimilarImageRequest extends ScopeRequest {
 
     @Override
     public boolean checkAllRequired() {
-        return mediaId != 0.0 || mediaUrl != null || base64 != null;
+        return mediaId != null || mediaUrl != null || base64 != null;
     }
 }

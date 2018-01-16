@@ -1,28 +1,28 @@
-package com.scopemedia.scopescheck.dto.response;
+package com.scopemedia.api.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.scopemedia.scopescheck.dto.model.Media;
+import com.scopemedia.api.dto.Media;
 
 /**
  * Created by maikel on 2017-03-27.
  */
 
 /**
- * Return all media files you added to your similar images pool
+ * Returns all media files you added to your similar images pool
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AddMediaResponse extends ScopeResponse {
+public class MediaResponse extends ScopeResponse {
 
     @JsonProperty("medias")
     private Media[] medias;
 
-    public AddMediaResponse() {
+    public MediaResponse() {
     }
 
     /**
      * Array of Medias you added to your similar images pool
-     * @return Array of Medias you added to your similar images pool. See {@link com.scopemedia.scopescheck.dto.model.Media}
+     * @return Array of Medias you added to your similar images pool. See {@link Media}
      */
     public Media[] getMedias() {
         return medias;
