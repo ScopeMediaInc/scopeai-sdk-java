@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'com.scopemedia.api'
-version = '2.0.0'
+version = '2.0.1'
 
 ext {
     okHttp = "3.9.1"

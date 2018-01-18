@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Media {
 
     @JsonProperty("mediaId")
-    private long id;
+    private Long id;
 
     @JsonProperty("mediaUrl")
     private String url;
@@ -21,7 +21,7 @@ public class Media {
     public Media() {
     }
 
-    public Media setId(long id) {
+    public Media setId(Long id) {
         this.id = id;
         return this;
     }
@@ -35,7 +35,7 @@ public class Media {
      *
      * @return mediaID
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
