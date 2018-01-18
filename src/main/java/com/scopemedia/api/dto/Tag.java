@@ -36,4 +36,9 @@ public class Tag {
     public double getScore() {
         return Double.parseDouble(score);
     }
+
+	@Override
+	public String toString() {
+		return "Tag [label=" + label + ", score=" + score + "]";
+	}
 }

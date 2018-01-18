@@ -54,4 +54,9 @@ public class Media {
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
 	}
+
+	@Override
+	public String toString() {
+		return "Media [id=" + id + ", url=" + url + ", thumbnail=" + thumbnail + "]";
+	}
 }

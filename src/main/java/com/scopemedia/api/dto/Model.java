@@ -121,4 +121,11 @@ public class Model {
     public String getStatus() {
         return status;
     }
+
+	@Override
+	public String toString() {
+		return "Model [id=" + id + ", creationTime=" + creationTime + ", description=" + description + ", name=" + name
+				+ ", publicModel=" + publicModel + ", status=" + status + "]";
+	}
+    
 }
