@@ -17,6 +17,10 @@ public class MediaResponse extends ScopeResponse {
     @JsonProperty("medias")
     private Media[] medias;
 
+    public static MediaResponse newInstance(){
+    		return new MediaResponse();
+    	}
+
     public MediaResponse() {
     }
 

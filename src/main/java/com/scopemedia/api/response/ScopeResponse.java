@@ -10,21 +10,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class ScopeResponse {
 
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("code")
+    private int code;
 
-    @JsonProperty("error")
-    private String error;
-
+    @JsonProperty("message")
+    private String message;
+    
     public ScopeResponse() {
-
+    }
+    
+    public ScopeResponse(int code, String message) {
+    		this.code = code;
+    		this.message = message;
     }
 
-    public String getStatus() {
-        return status;
-    }
+    public int getCode() {
+		return code;
+	}
 
-    public String getError() {
-        return error;
-    }
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 }

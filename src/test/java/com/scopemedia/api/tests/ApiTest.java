@@ -26,9 +26,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 
 public class ApiTest {
-
-    private static final String CLIENT_ID = "demo";
-    private static final String CLIENT_SECRET = "demotestsecret";
+	//TODO 	register and copy your client_id and client_secret here
+    private static final String CLIENT_ID = null;
+    private static final String CLIENT_SECRET = null;
     private ScopeCheckClient client;
 
     private Area area = new Area(320, 520, 340, 750);
@@ -36,6 +36,8 @@ public class ApiTest {
 
     @Before
     public void init() {
+    		Assert.assertNotNull(CLIENT_ID, "register for a free client id");
+    		Assert.assertNotNull(CLIENT_SECRET);
         client = new ScopeCheckBuilder(CLIENT_ID, CLIENT_SECRET)
                 .setDebugMode(true)
                 .setDebugLevel(HttpLoggingInterceptor.Level.BODY)
@@ -44,9 +46,9 @@ public class ApiTest {
 
     @Test
     public void testGetMediaInCollection() {
-        try {
+        try {        		
             MediaResponse response = client.getMedias(0,20).performSync();
-            Assert.assertEquals("OK", response.getStatus());
+            Assert.assertEquals(200, response.getCode());
             Media[] medias = response.getMedias();
             for (Media media : medias)
                 System.out.println(media.getUrl());
@@ -55,12 +57,12 @@ public class ApiTest {
             Assert.fail();
         }
     }
-
+    
     @Test
     public void testGetPredictionModels() {
         try {
-            ModelResponse response = client.getModels().performSync();
-            Assert.assertEquals("OK", response.getStatus());
+            ModelResponse response = client.getModels().performSync();       		 
+            Assert.assertEquals(200, response.getCode());
             Model[] models = response.getModels();
             for (Model model : models)
                 System.out.println(model.getName() + "\tisPublic: " + model.isPublicModel());
@@ -78,7 +80,7 @@ public class ApiTest {
 
         try {
             PredictionResponse response = client.getPrediction(request).performSync();
-            Assert.assertEquals("OK", response.getStatus());
+            Assert.assertEquals(200, response.getCode());
             Tag[] tags = response.getTags();
             for (Tag tag : tags)
                 System.out.println(tag.getTag() + ":" + tag.getScore());
@@ -97,7 +99,7 @@ public class ApiTest {
 
         try {
             PredictionResponse response = client.getPrediction(request).performSync();
-            Assert.assertEquals("OK", response.getStatus());
+            Assert.assertEquals(200, response.getCode());
             Tag[] tags = response.getTags();
             for (Tag tag : tags)
                 System.out.println(tag.getTag() + ":" + tag.getScore());
@@ -112,11 +114,10 @@ public class ApiTest {
     public void testGetSimilarImages() {
         SimilarImageRequest request = new SimilarImageRequest();
         request.setMediaAsUrl(imageUrl);
-        request.setAppId("fashion");
 
         try {
             MediaResponse response = client.getSimilarImages(request).performSync();
-            Assert.assertEquals("OK", response.getStatus());
+            Assert.assertEquals(200, response.getCode());
             Media[] mediaList = response.getMedias();
             for (Media media : mediaList)
                 System.out.println(media.getUrl());
@@ -130,11 +131,10 @@ public class ApiTest {
         SimilarImageRequest request = new SimilarImageRequest();
         request.setMediaAsUrl(imageUrl);
         request.setArea(area);
-        request.setAppId("fashion");
 
         try {
             MediaResponse response = client.getSimilarImages(request).performSync();
-            Assert.assertEquals("OK", response.getStatus());
+            Assert.assertEquals(200, response.getCode());
             Media[] mediaList = response.getMedias();
             for (Media media : mediaList)
                 System.out.println(media.getUrl());
