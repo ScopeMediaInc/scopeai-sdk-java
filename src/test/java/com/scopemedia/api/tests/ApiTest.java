@@ -27,8 +27,8 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 public class ApiTest {
 	//TODO 	register and copy your client_id and client_secret here
-    private static final String CLIENT_ID = null;
-    private static final String CLIENT_SECRET = null;
+	private static final String CLIENT_ID = "ukKxYOZL94oDmIiPOO5GfREQHLglY25gkttmhFurUmmHSNSW1srrIY0ErT6lB3Eo";
+	private static final String CLIENT_SECRET = "eWq0bU8j80R5b96YZmqfWNIYVugMj89m4P79qSKl4FyYiLMBQ23TuHf56gF9RrWh"; 
     private ScopeCheckClient client;
 
     private Area area = new Area(320, 520, 340, 750);
