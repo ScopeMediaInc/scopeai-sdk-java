@@ -26,7 +26,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  * Created by maikel on 2017-03-27.
  */
 
-class ScopeCheckClientImpl implements ScopeCheckClient {
+class ScopeAIClientImpl implements ScopeAIClient {
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	public class ScopeError {
 		private int status;
@@ -74,13 +74,13 @@ class ScopeCheckClientImpl implements ScopeCheckClient {
 		}	
 	}
 
-    private ScopeCheckService service;
+    private ScopeAIService service;
 
     /**
-     *  Use by {@link ScopeCheckBuilder} to initialise a new {@link ScopeCheckClient}
-     * @param builder {@link ScopeCheckBuilder}
+     *  Use by {@link ScopeAIBuilder} to initialise a new {@link ScopeAIClient}
+     * @param builder {@link ScopeAIBuilder}
      */
-    protected ScopeCheckClientImpl(ScopeCheckBuilder builder) {
+    protected ScopeAIClientImpl(ScopeAIBuilder builder) {
 
         final String clientId = builder.getClientId();
         final String clientSecret = builder.getClientSecret();
@@ -113,7 +113,7 @@ class ScopeCheckClientImpl implements ScopeCheckClient {
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
 
-        this.service = retrofit.create(ScopeCheckService.class);
+        this.service = retrofit.create(ScopeAIService.class);
     }
 
     @Override

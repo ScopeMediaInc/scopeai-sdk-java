@@ -1,11 +1,11 @@
-ScopeCheck Java SDK
+ScopeAI Java SDK
 ======================
 
-A simple client for the ScopeMedia API _ScopeCheck_
+A simple client for the ScopeMedia API _ScopeAI_
 
-* Try the ScopeCheck demo at: https://api.scopemedia.com/#/demo/image-search
-* Sign up for a free account at: https://api.scopemedia.com/#/signup
-* Read the documentation at: https://developer.scopemedia.com/documentation/
+* Try the ScopeAI demo at:
+* Sign up for a free account at: https://console.scopemedia.com/#/signup
+* Read the documentation at: https://docs.scopemedia.com/
 
 Installation
 ------------
@@ -19,7 +19,7 @@ Add the following to the dependencies section of your `build.gradle`:
 ```groovy
 // Add the client to your dependencies:
 dependencies {
-    compile 'com.scopemedia.api:java-sdk:2.0.1'
+    compile 'com.scopemedia.api:java-sdk:3.0.0'
 }
 
 // Make sure you have the Maven Local Repository in your Gradle File
@@ -36,24 +36,24 @@ Add the following to your dependencies:
 <dependency>
   <groupId>com.scopemedia.api</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>2.0.1</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
 Getting Started
 ---------------
-Get your Client ID and Client Secret [here](https://api.scopemedia.com/#/dashboard/products/ScopeCheck/)
+Get your Client ID and Client Secret [here](https://console.scopemedia.com/#/)
 
-To create a `ScopeCheckClient` instance with an ID and secret do the following:
+To create a `ScopeAIClient` instance with an ID and secret do the following:
 
 ```java
-ScopeCheckClient client = new ScopeCheckBuilder(CLIENT_ID, CLIENT_SECRET).build();
+ScopeAIClient client = new ScopeAIBuilder(CLIENT_ID, CLIENT_SECRET).build();
 ```
 
 You can also enable the debug and set an debug level based on OkHttp3
 
 ```java
-ScopeCheckClient client = new ScopeCheckBuilder(CLIENT_ID, CLIENT_SECRET)
+ScopeAIClient client = new ScopeAIBuilder(CLIENT_ID, CLIENT_SECRET)
                 .setDebugMode(true)
                 .setDebugLevel(HttpLoggingInterceptor.Level.BODY)
                 .build();
@@ -62,7 +62,7 @@ ScopeCheckClient client = new ScopeCheckBuilder(CLIENT_ID, CLIENT_SECRET)
 Perform request
 -------------------
 Network operations using the API client only occur by calling `.performSync()` or `.performAsync(...)` on a
-`ScopeCallback<T>` object.
+`ScopeAICallback<T>` object.
 
 ### Example for a prediction
 #### Async
@@ -71,7 +71,7 @@ PredictionRequest request = new PredictionRequest();
 request.setMediaUrl(imageUrl);
 request.setModelId("general-v3");
 
-client.getPrediction(request).performAsync(new ScopeCallback<PredictionResponse>() {
+client.getPrediction(request).performAsync(new ScopeAICallback<PredictionResponse>() {
     @Override
     public void onScopeResponse(PredictionResponse response) {
         Tag[] tags = response.getTags();

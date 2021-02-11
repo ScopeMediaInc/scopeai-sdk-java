@@ -1,10 +1,11 @@
 package com.scopemedia.api.tests;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import com.scopemedia.api.client.ScopeCheckBuilder;
-import com.scopemedia.api.client.ScopeCheckClient;
+import com.scopemedia.api.client.ScopeAIBuilder;
+import com.scopemedia.api.client.ScopeAIClient;
 import com.scopemedia.api.dto.Area;
 import com.scopemedia.api.dto.Media;
 import com.scopemedia.api.dto.Model;
@@ -29,7 +30,7 @@ public class ApiTest {
 	//TODO 	register and copy your client_id and client_secret here
 	private static final String CLIENT_ID = "ukKxYOZL94oDmIiPOO5GfREQHLglY25gkttmhFurUmmHSNSW1srrIY0ErT6lB3Eo";
 	private static final String CLIENT_SECRET = "eWq0bU8j80R5b96YZmqfWNIYVugMj89m4P79qSKl4FyYiLMBQ23TuHf56gF9RrWh"; 
-    private ScopeCheckClient client;
+    private ScopeAIClient client;
 
     private Area area = new Area(320, 520, 340, 750);
     private String imageUrl = "https://cdn-images.farfetch-contents.com/11/84/74/89/11847489_8709666_1000.jpg";
@@ -38,7 +39,7 @@ public class ApiTest {
     public void init() {
     		Assert.assertNotNull(CLIENT_ID, "register for a free client id");
     		Assert.assertNotNull(CLIENT_SECRET);
-        client = new ScopeCheckBuilder(CLIENT_ID, CLIENT_SECRET)
+        client = new ScopeAIBuilder(CLIENT_ID, CLIENT_SECRET)
                 .setDebugMode(true)
                 .setDebugLevel(HttpLoggingInterceptor.Level.BODY)
                 .build();
@@ -58,6 +59,7 @@ public class ApiTest {
         }
     }
     
+    @Ignore
     @Test
     public void testGetPredictionModels() {
         try {

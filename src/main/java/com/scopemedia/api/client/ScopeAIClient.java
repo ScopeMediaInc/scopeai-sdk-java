@@ -1,6 +1,6 @@
 package com.scopemedia.api.client;
 
-import com.scopemedia.api.client.ScopeCheckClientImpl.RequestBuilder;
+import com.scopemedia.api.client.ScopeAIClientImpl.RequestBuilder;
 import com.scopemedia.api.request.AddMediaRequest;
 import com.scopemedia.api.request.PredictionRequest;
 import com.scopemedia.api.request.SimilarImageRequest;
@@ -12,7 +12,7 @@ import com.scopemedia.api.response.PredictionResponse;
  * Created by maikel on 2017-03-27.
  */
 
-public interface ScopeCheckClient {
+public interface ScopeAIClient {
     /**
      * Returns all media files form your similar images pool
      * @param page

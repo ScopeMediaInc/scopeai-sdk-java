@@ -17,20 +17,20 @@ import retrofit2.http.Query;
  * Created by maikel on 2017-03-27.
  */
 
-interface ScopeCheckService {
+interface ScopeAIService {
 
-    @GET("search/v2/medias")
+    @GET("simile/v2/medias")
     Call<MediaResponse> getMedias(@Query("page") int page, @Query("size") int size);
 
-    @POST("search/v2/medias")
+    @POST("simile/v2/medias")
     Call<MediaResponse> addMedias(@Body AddMediaRequest request);
 
-    @POST("search/v2/similar")
+    @POST("simile/v2/search")
     Call<MediaResponse> getSimilarImages(@Body SimilarImageRequest request);
 
-    @POST("tagging/v2/prediction")
+    @POST("tag/v2/tagging")
     Call<PredictionResponse> getPrediction(@Body PredictionRequest request);
 
-    @GET("tagging/v2/models")
+    @GET("tag/v2/models")
     Call<ModelResponse> getModels();
 }
